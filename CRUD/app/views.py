@@ -4,7 +4,7 @@ from .serialize import studentserializer
 from rest_framework.renderers import JSONRenderer
 from django.http import HttpResponse
 from django import forms
-# Create your views here.
+# Create your views Data Here.
 
 def adddata(request):
     if request.method == 'POST':
