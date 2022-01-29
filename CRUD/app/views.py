@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django import forms
 # Create your views Data Here.
 
-def adddata(request):
+def adddata(request):   #Done
     if request.method == 'POST':
         studentid = request.POST['id']
         studentname = request.POST['name']
@@ -16,14 +16,14 @@ def adddata(request):
     context = {'alldata' : alldata}
     return render(request,'adddata.html',context)
 
-def showdata(request):
+def showdata(request):                  #Done
     stu = Student.objects.all()
     serializer = studentserializer(stu,many = True)
     json_data = JSONRenderer().render(serializer.data)
     return HttpResponse(json_data,content_type = 'application/json')
 
 
-def update_data(request,pk):
+def update_data(request,pk):            #Done
     stu = Student.objects.get(id=pk)    
     serializer = studentserializer(stu)
     json_data = JSONRenderer().render(serializer.data)
